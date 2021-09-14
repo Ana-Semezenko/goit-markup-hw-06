@@ -828,18 +828,6 @@ header {
 
   background-color: #fff;
 }
-.button-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 30px;
-  height: 30px;
-
-  background-color: #fff;
-  border-radius: 50%;
-  cursor: pointer;
-}
 .application {
   position: relative;
   padding: 40px;
@@ -884,11 +872,14 @@ header {
   width: 450px;
   border: 1px solid #21212133;
   border-radius: 4px;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .application-item {
   position: absolute;
   top: 11px;
   left: 12px;
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .application-input:focus ~ .application-item {
   fill: var(--accent-color);
@@ -912,6 +903,8 @@ header {
 
   border: 1px solid #21212133;
   border-radius: 4px;
+
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .agreement-box {
   display: flex;
@@ -920,7 +913,10 @@ header {
   margin-bottom: 30px;
 }
 .agreement-info {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   font-weight: 400;
   font-size: 14px;
   line-height: 1.7;
@@ -928,17 +924,19 @@ header {
   color: var(--seconday-text-color);
 }
 .agreement-tick {
-  position: absolute;
-  left: 52px;
-  width: 16px;
-  height: 15px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 .tick-box {
-  position: absolute;
-  left: 52px;
-  pointer-events: none;
+  margin-right: 7px;
 }
-
+.agreement-tick:checked + .tick-box {
+  background-color: var(--accent-color);
+  background-image: url(../img/check.svg);
+  fill: var(--accent-color);
+  border-radius: 2px;
+}
 .send-button {
   width: 200px;
   height: 50px;
@@ -954,11 +952,12 @@ header {
   font-size: 16px;
   line-height: 1.9;
   letter-spacing: 0.06em;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .send-button:hover,
 .send-button:focus {
   background-color: #188ce8;
-  box-shadow: 0px 4px 4px 0px #00000026;
   cursor: pointer;
 }
 .send-box {
@@ -975,6 +974,21 @@ header {
 
   padding: 0px;
   margin: 8px;
+}
+
+.button-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 30px;
+  height: 30px;
+
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .close-button:hover .button-box,
 .close-button:focus .button-box {
